@@ -329,29 +329,77 @@ loftloaderProInsertStyle( 'loftloader-pro-progress-percentage-style', percentage
 				</div>
 				<div class="elementor-element elementor-element-e84c36a elementor-invisible elementor-widget elementor-widget-text-editor" data-id="e84c36a" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;zoomIn&quot;}" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-							<p><title>Rounded Corner Box</title>
-								<style>
-									.rounded-box {
-										border: 5px solid #c3e157; /* Border color and thickness */
-										border-radius: 15px; /* Rounded corners */
-										padding: 20px; /* Padding inside the box */
-										width: 400px; /* Width of the box */
-										margin: 20px auto; /* Center the box horizontally */
-										font-family: Rammetto One, Sans-serif; /* Font family */
-										font-size: 40px; /* Font size */
-										background-color: transparent; /* Transparent background */
-										text-align: center; /* Center the text inside the box */
-										align-items: center;
-										justify-content: center;
-										display: flex;
-									}
-								</style>
-							</head>
-							<body>
-								<div class="rounded-box">
-									CA : 
-								</div>
-							</body></p>						</div>
+					<head>
+						<title>Rounded Corner Box</title>
+						<head>
+							<title>Rounded Corner Box</title>
+							<style>
+								.rounded-box {
+									border: 5px solid #c3e157; /* Border color and thickness */
+									border-radius: 40px; /* Rounded corners */
+									padding: 20px; /* Padding inside the box */
+									width: 400px; /* Width of the box */
+									margin: 20px auto; /* Center the box horizontally */
+									font-family: 'Rammetto One', sans-serif; /* Font family */
+									font-size: 40px; /* Font size */
+									background-color: transparent; /* Transparent background */
+									text-align: center; /* Center the text inside the box */
+									display: flex; /* Use flexbox for centering */
+									align-items: center; /* Center text vertically */
+									justify-content: center; /* Center text horizontally */
+									flex-direction: column; /* Stack elements vertically */
+								}
+						
+								.copy-button {
+									margin-top: 20px; /* Space between text and button */
+									padding: 15px 30px; /* Button padding */
+									font-size: 20px; /* Button font size */
+									cursor: pointer; /* Pointer cursor on hover */
+									border: 3px solid #c3e157; /* Border style, width, and color */
+									border-radius: 20px; /* Rounded button corners */
+									background-color: #000; /* Button background color */
+									color: #c3e157; /* Button text color */
+									transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+								}
+						
+								.copy-button:hover {
+									background-color: #c3e157; /* Background color on hover */
+									color: #000; /* Text color on hover */
+								}
+							</style>
+						</head>
+						<body>
+							<div class="rounded-box">
+								<span id="text-to-copy">CA: This is a box with rounded corners and some text inside it.</span>
+								<button class="copy-button" onclick="copyText()">Copy Text</button>
+							</div>
+						
+							<script>
+								function copyText() {
+									// Get the text to copy
+									var fullText = document.getElementById("text-to-copy").innerText;
+									
+									// Find the position of ":" and extract text after it
+									var index = fullText.indexOf(":");
+									var textToCopy = fullText.substring(index + 1).trim();
+						
+									// Create a temporary textarea element to copy the text
+									var tempTextArea = document.createElement("textarea");
+									tempTextArea.value = textToCopy;
+									document.body.appendChild(tempTextArea);
+						
+									// Select the text and copy it
+									tempTextArea.select();
+									document.execCommand("copy");
+						
+									// Remove the temporary textarea element
+									document.body.removeChild(tempTextArea);
+						
+									// Alert to indicate the text has been copied
+									alert("Text copied: " + textToCopy);
+								}
+							</script>
+						</body>
 				</div>
 				<div class="elementor-element elementor-element-9758440 elementor-invisible elementor-widget elementor-widget-eael-creative-button" data-id="9758440" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="eael-creative-button.default">
 				<div class="elementor-widget-container">
